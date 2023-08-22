@@ -1,0 +1,6 @@
+oracledb
+jupyterlab
+pandas
+ipython-sql
+prettytable
+pyvis
