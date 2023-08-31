@@ -3,6 +3,8 @@ from oracledb import Connection
 from pyvis.network import Network
 from prettytable import PrettyTable
 from IPython.display import HTML, display
+import time
+import matplotlib.pyplot as plt
 import pandas as pd
 import json
 
@@ -102,5 +104,24 @@ def render_query(net:Network, connection:Connection, query:str, highlight:list) 
         for row in rows:
             net.add_edge(int(row[0]), int(row[1]), label=row[2])
         net.repulsion(node_distance=100, spring_length=200)
+
+
+def compare_performance(things_to_execute:str, execution_count:int, connection:oracledb.Connection) -> None:
+    cursor = connection.cursor()
+    results = []
+    for t in things_to_execute:
+        sql = t["SQL"]
+        title = t["Name"]
+        start = time.time()
+        for i in range(1, execution_count):
+            cursor.execute(sql)
+        results.append({"Title":title,"Result":time.time() - start})
+    timings = [r["Result"] for r in results]
+    columns_names = [r["Title"] for r in results]
+    plt.bar(range(len(timings)), timings)
+    plt.xticks(range(len(timings)),columns_names)
+    plt.title (f"Comparison of Performance for {execution_count} executions")
+    plt.ylabel("Seconds")
+    plt.show()
         
     
