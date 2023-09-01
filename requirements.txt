@@ -4,3 +4,5 @@ pandas
 ipython-sql
 prettytable
 pyvis
+matplotlib
+
