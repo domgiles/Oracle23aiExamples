@@ -3,7 +3,7 @@ echo "==========================="
 echo "=      STARTING ORDS      ="
 echo "==========================="
 
-ords/bin/ords serve &
+ords/bin/ords --config /ora23c/ords/bin serve  &
 
 echo "==========================="
 echo "=  STARTING JUPYTER-LAB   ="
