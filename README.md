@@ -49,7 +49,7 @@ Currently, this will take a few minutes to run as we build the python oracledb d
 
 Then run the command
 ```bash
-docker run -p 8888:8888 examples23c-jup:latest
+docker run -p 8888:8888 -p 8080:8080 examples23c-jup:latest
 ```
 You can change the mapping of the ports (-p) to anything you feel fits your requirements.
 
