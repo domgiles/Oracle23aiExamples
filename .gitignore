@@ -1,2 +1,5 @@
 /customers.html
 /friendsoffriendsquery.html
+.ipynb_checkpoints/**
+/.idea/**
+
