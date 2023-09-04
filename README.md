@@ -27,8 +27,34 @@ Then start jupyter-lab i.e.
 * You should have installed Oracle ORDS and configured that against your target database.
 * Use the ```Setup``` notebook to create an Oracle user to run the scripts.
 
+## Using the dockerfile
+We're using docker in an unconventional way mainly to simplify the install for users unfamiliar with Python and jupyter-lab. The docker file will install all the needed components and configure it for a target database. This isn't ideal since every image is unique.
+We will fix this at a later stage. Providing a single image that users can specify values at the command line.
+At this point in time users just need to edit the docker file and change these lines to reflect their target database
+```bash
+# Change these line to point at your database
+ENV DBA_USERNAME="SYS"
+ENV DBA_PASSWORD="welcome1"
+ENV HOST="192.168.86.235"
+ENV SERVICE="soe"
+# ^^^^^^^^^^^^^^^^^^^^^
+```
+And then run the command
+```bash
+docker build -t "examples23c-jup:latest" .
+```
+Currently, this will take a few minutes to run as we build the python oracledb driver. This is to avoid a bug in the current production build. This will chnage shortly and the build will be much faster.
 
-Things to do
+Then run the command
+```bash
+docker run -p 8888:8888 examples23c-jup:latest
+```
+You can change the mapping of the ports (-p) to anything you feel fits your requirements.
+
+You should then be able to connect to the port in the browser on your localmachine (or where ever you are running docker/podman). 
+
+
+## Things to do
 
 * Add images and additional text to examples.
 ~~* Add a helper notebook (i.e. create user) with instructions on how to run the notebook.~~

@@ -1,5 +1,12 @@
 FROM python:3.11
 
+# Change these line to point at your database
+ENV DBA_USERNAME="SYS"
+ENV DBA_PASSWORD="welcome1"
+ENV HOST="192.168.86.235"
+ENV SERVICE="soe"
+# ^^^^^^^^^^^^^^^^^^^^^
+
 USER root
 
 RUN apt-get update && apt-get install -y gcc python3-dev git openjdk-17-jre-headless
@@ -28,10 +35,6 @@ ADD scripts scripts
 COPY *.ipynb .
 COPY *.py .
 
-ENV DBA_USERNAME="SYS"
-ENV DBA_PASSWORD="welcome1"
-ENV HOST="192.168.86.235"
-ENV SERVICE="soe"
 
 RUN wget https://download.oracle.com/otn_software/java/ords/ords-latest.zip
 RUN unzip -d ords ords-latest.zip && cd ords/bin && echo $DBA_PASSWORD\\n$DBA_PASSWORD\\n$DBA_PASSWORD > passwd.txt
