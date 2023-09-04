@@ -30,11 +30,13 @@ Then start jupyter-lab i.e.
 ## Using the dockerfile
 We're using docker in an unconventional way mainly to simplify the install for users unfamiliar with Python and jupyter-lab. The docker file will install all the needed components and configure it for a target database. This isn't ideal since every image is unique.
 We will fix this at a later stage. Providing a single image that users can specify values at the command line.
-At this point in time users just need to edit the docker file and change these lines to reflect their target database
+At this point in time you just need to edit the docker file and change these lines to reflect your target database
 ```bash
 # Change these line to point at your database
 ENV DBA_USERNAME="SYS"
 ENV DBA_PASSWORD="welcome1"
+ENV USER_NAME="ora23c"
+ENV PASSWORD="ora23c"
 ENV HOST="192.168.86.235"
 ENV SERVICE="soe"
 # ^^^^^^^^^^^^^^^^^^^^^
