@@ -41,6 +41,7 @@ RUN git clone --recurse-submodules https://github.com/oracle/python-oracledb.git
 # Add directories to store file neatly in and copy the files
 ADD images images
 ADD scripts scripts
+RUN mkdir html
 
 COPY *.ipynb .
 COPY *.py .

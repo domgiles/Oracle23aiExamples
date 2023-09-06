@@ -53,7 +53,13 @@ docker run -p 8888:8888 -p 8080:8080 examples23c-jup:latest
 ```
 You can change the mapping of the ports (-p) to anything you feel fits your requirements.
 
-You should then be able to connect to the port in the browser on your localmachine (or where ever you are running docker/podman). 
+You should then be able to connect to the port in the browser on your localmachine (or where ever you are running docker/podman). It will need a token (I don't reccomend disabling this).
+
+You can find the url for jupyter lab including its token by scrolling up a little bit... and looking for something like this
+```bash
+http://127.0.0.1:8888/lab?token=ca7653aeca99f86e3db823bfa2fd1e4adefa83183b449b35
+```
+
 
 
 ## Things to do
