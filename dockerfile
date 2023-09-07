@@ -14,7 +14,7 @@ ENV PASSWORD="ora23c"
 USER root
 
 # Add need OS applications and libraries
-RUN apt-get update && apt-get install -y gcc python3-dev git openjdk-17-jre-headless
+RUN apt-get update && apt-get install -y git openjdk-17-jre-headless
 
 RUN useradd --create-home $USER_NAME
 
@@ -30,13 +30,9 @@ WORKDIR $USER_NAME
 RUN python -m venv pyenv
 ENV PATH="/home/ora23c/.local/bin:/home/ora23c/pyenv/bin:$PATH"
 
-# Copy the needed python library requirments and intall them
+# Copy the needed python library requirments and install them
 COPY requirements.txt .
 RUN pip install -r requirements.txt && rm requirements.txt
-
-# Install the oracledb python driver source and compile it...
-ENV PYTHONPATH="/home/ora23c/.local/lib/python3.11/site-packages/"
-RUN git clone --recurse-submodules https://github.com/oracle/python-oracledb.git && cd python-oracledb && python3 -m pip uninstall -y oracledb && git clean -fdx && python3 setup.py install --user
 
 # Add directories to store file neatly in and copy the files
 ADD images images
