@@ -84,7 +84,7 @@ def drop_schema(args):
     exit(0)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Install/Deinstall Oracle 23c Examples')
+    parser = argparse.ArgumentParser(prog='Installer', description='Install/Deinstall Oracle 23c Examples')
     group = parser.add_mutually_exclusive_group(required=False)
     parser.add_argument('-du', '--dba_user', help='sys username', required=True)
     parser.add_argument('-dp', '--dba_password', help='sys password', required=True)

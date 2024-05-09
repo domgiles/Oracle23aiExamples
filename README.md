@@ -45,7 +45,6 @@ And then run the command
 ```bash
 docker build -t "examples23c-jup:latest" .
 ```
-Currently, this will take a few minutes to run as we build the python oracledb driver. This is to avoid a bug in the current production build. This will chnage shortly and the build will be much faster.
 
 Then run the command
 ```bash

@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y git openjdk-17-jre-headless
 
 RUN useradd --create-home $USER_NAME
 
-# Open the ports we will need to open on the docker container
+# Open the ports we will need avialable on the docker container
 EXPOSE 8888
 EXPOSE 8080
 
