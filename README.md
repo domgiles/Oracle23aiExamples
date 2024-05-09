@@ -63,8 +63,8 @@ http://127.0.0.1:8888/lab?token=ca7653aeca99f86e3db823bfa2fd1e4adefa83183b449b35
 
 ## Things to do
 
-~~* Add images and additional text to examples.~~
-~~* Add a helper notebook (i.e. create user) with instructions on how to run the notebook.~~
+* ~~Add images and additional text to examples.~~
+* ~~Add a helper notebook (i.e. create user) with instructions on how to run the notebook.~~
 * Add additional Oracle 23c examples
-~~* Create a dockerfile to build an image that can be trivially shared with people~~
+* ~~Create a dockerfile to build an image that can be trivially shared with people~~
 
