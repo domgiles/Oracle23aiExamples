@@ -1,4 +1,4 @@
-# Oracle23c Examples
+# Oracle23ai Examples
 
 Ultimately this demo will come in the form of a docker container or Virtual Box intall.
 
